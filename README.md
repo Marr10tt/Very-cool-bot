@@ -6,3 +6,5 @@ discord.py
 pynacl
 youtube-dl
 yt-dlg
+
+sd
