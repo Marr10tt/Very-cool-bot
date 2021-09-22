@@ -4,18 +4,24 @@ import youtube_dl
 import os
 import random
 
+#controls the bots prefix
 client = commands.Bot(command_prefix="!")
-#music bot
+
+#music commands
+
+#downloads and plays the song based on YT link
 @client.command()
 async def play(ctx, url : str):
     song_there = os.path.isfile("song.webm")
     try:
         if song_there:
             os.remove("song.webm")
+    #throws a user error message if 2 songs are tried to be played at once
     except PermissionError:
         await ctx.send("Wait for the current playing music to end or use the 'stop' command")
         return
 
+    #connects the bot to the general vc
     voiceChannel = discord.utils.get(ctx.guild.voice_channels, name='general')
     await voiceChannel.connect()
     voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
@@ -30,6 +36,7 @@ async def play(ctx, url : str):
             os.rename(file, "song.webm")
     voice.play(discord.FFmpegOpusAudio("song.webm"))
 
+#makes the bot leave the vc it is in
 @client.command()
 async def leave(ctx):
     voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
@@ -38,6 +45,7 @@ async def leave(ctx):
     else:
         await ctx.send("The bot is not connected to a voice channel.")
 
+#pauses the current track 
 @client.command()
 async def pause(ctx):
     voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
@@ -46,14 +54,17 @@ async def pause(ctx):
     else:
         await ctx.send("Currently no audio is playing.")
 
+#resumes the current track after being paused
 @client.command()
 async def resume(ctx):
     voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
     if voice.is_paused():
         voice.resume()
     else:
+        #throws error message
         await ctx.send("The audio is not paused.")
 
+#stops the music (unable to resume afterwards)
 @client.command()
 async def stop(ctx):
     voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
@@ -61,20 +72,20 @@ async def stop(ctx):
 
 
 #other commands
+
+#coin flip command (picks heads or tails)
 @client.command()
 async def coinflip(ctx):
     choices = ["Heads", "Tails"]
     rancoin = random.choice(choices)
     await ctx.send(rancoin)
-    
+
+#dice roll command (picks a calue between 1 and 6 (being changed to incorporate any size dice))
 @client.command()
 async def dice(ctx):
+    #current list of choices for the dice
     choices1 = ["You rolled a 1","You rolled a 2","You rolled a 3","You rolled 4","You rolled a 5","You rolled a 6"]
     randice = random.choice(choices1)
     await ctx.send(randice)
-
-@client.command()
-async def copy(ctx):
-    await ctx.send("copy")
 
 client.run('')
