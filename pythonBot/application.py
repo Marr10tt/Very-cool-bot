@@ -77,4 +77,4 @@ async def dice(ctx):
 async def copy(ctx):
     await ctx.send("copy")
 
-client.run('ODg5NTAzMzQ3NzkzNjAwNTMy.YUiMjA.yUKO6HG1WkwSRZP75924_xQ4fQs')
+client.run('')
