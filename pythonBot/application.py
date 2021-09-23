@@ -4,12 +4,11 @@ import youtube_dl
 import os
 import random
 from dotenv import load_dotenv
-
 #Version 0.1.1
 
 #controls the bots prefix
 client = commands.Bot(command_prefix="!")
-
+client.remove_command('help')
 #music commands
 
 #downloads and plays the song based on YT link
