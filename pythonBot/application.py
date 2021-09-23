@@ -19,7 +19,7 @@ client.remove_command('help')
 async def on_ready():
     print(f'{client.user} has connected')
 
-#sends out a message every 60 minutes to drink water in the hydretion channel
+#sends out a message every 60 minutes to drink water in the hydration channel
 @tasks.loop(minutes=60)
 async def water():
     await client.wait_until_ready()
