@@ -6,6 +6,7 @@ discord.py
 pynacl
 youtube-dl
 yt-dlg
+dotENV
 
 files required to support music playing: 
 ffmpeg.exe
