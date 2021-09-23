@@ -16,9 +16,9 @@ client.remove_command('help')
 #help command, displays list of all important commands
 @client.command()
 async def help(ctx):
-    await ctx.send("help - displays a list of key commands")
-    await ctx.send("play - plays a given youtube link")
-    await ctx.send("leave - makes the bot leave the vc")
+    await ctx.send("""```help - displays a list of key commands 
+play - plays a given youtube link 
+leave - makes the bot leave the vc```""")
 
 #music commands
 
