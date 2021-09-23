@@ -4,11 +4,21 @@ import youtube_dl
 import os
 import random
 from dotenv import load_dotenv
-#Version 0.1.1
+#Version 0.1.2
 
 #controls the bots prefix
 client = commands.Bot(command_prefix="!")
 client.remove_command('help')
+
+#generic commands 
+
+#help command, displays list of all important commands
+@client.command()
+async def help(ctx):
+    await ctx.send("help - displays a list of key commands")
+    await ctx.send("play - plays a given youtube link")
+    await ctx.send("leave - makes the bot leave the vc")
+
 #music commands
 
 #downloads and plays the song based on YT link
