@@ -4,6 +4,8 @@ import youtube_dl
 import os
 import random
 
+#Version 0.1.0
+
 #controls the bots prefix
 client = commands.Bot(command_prefix="!")
 
