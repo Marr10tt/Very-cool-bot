@@ -1,5 +1,5 @@
 import discord
-from discord.ext import commands
+from discord.ext import tasks, commands
 import youtube_dl
 import os
 import random
@@ -18,6 +18,14 @@ client.remove_command('help')
 @client.event
 async def on_ready():
     print(f'{client.user} has connected')
+
+#sends out a message every 60 minutes to drink water in the hydretion channel
+@tasks.loop(minutes=60)
+async def water():
+    await client.wait_until_ready()
+    channel = client.get_channel(890688909875478598)
+    await channel.send("Have some water")
+
 
 #generic commands 
 
@@ -75,6 +83,8 @@ async def dice(ctx):
     randice = random.choice(dicerandom)
     await ctx.send(randice)
 
+#starts the water function
+water.start()
 #loads discord token from given .env file 
 load_dotenv()
 TOKEN = os.getenv("DISCORD_TOKEN")
