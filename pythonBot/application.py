@@ -92,7 +92,7 @@ async def dice(ctx):
     randice = random.choice(choices1)
     await ctx.send(randice)
 
-#loads discord token from given .env file
+#loads discord token from given .env file 
 load_dotenv()
 TOKEN = os.getenv("DISCORD_TOKEN")
 client.run(TOKEN)
