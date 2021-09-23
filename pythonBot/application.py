@@ -96,16 +96,16 @@ async def stop(ctx):
 #coin flip command (picks heads or tails)
 @client.command()
 async def coinflip(ctx):
-    choices = ["Heads", "Tails"]
-    rancoin = random.choice(choices)
+    coinfliprandom = ["Heads", "Tails"]
+    rancoin = random.choice(coinfliprandom)
     await ctx.send(rancoin)
 
 #dice roll command (picks a calue between 1 and 6 (being changed to incorporate any size dice))
 @client.command()
 async def dice(ctx):
     #current list of choices for the dice
-    choices1 = ["You rolled a 1","You rolled a 2","You rolled a 3","You rolled 4","You rolled a 5","You rolled a 6"]
-    randice = random.choice(choices1)
+    dicerandom = ["You rolled a 1","You rolled a 2","You rolled a 3","You rolled 4","You rolled a 5","You rolled a 6"]
+    randice = random.choice(dicerandom)
     await ctx.send(randice)
 
 #loads discord token from given .env file 
