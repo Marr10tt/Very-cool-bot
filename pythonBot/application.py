@@ -27,7 +27,8 @@ async def play(ctx, url : str):
     voiceChannel = discord.utils.get(ctx.guild.voice_channels, name='general')
     await voiceChannel.connect()
     voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
-
+    #249/250/251 sets it to download a webm. 
+    #discord.FFMpegOpusAudio allows it to play immediately after downloading without any conversion
     ydl_opts = {
         'format': '249/250/251',
     }
