@@ -11,6 +11,11 @@ client = commands.Bot(command_prefix="!")
 #removes the native help command
 client.remove_command('help')
 
+#Sends out a message to the terminal when the bot goes online
+@client.event
+async def on_ready():
+    print(f'{client.user} has connected')
+
 #generic commands 
 
 #help command, displays list of all important commands
@@ -19,6 +24,7 @@ async def help(ctx):
     await ctx.send("""```help - displays a list of key commands 
 play - plays a given youtube link 
 leave - makes the bot leave the vc```""")
+
 
 #music commands
 
