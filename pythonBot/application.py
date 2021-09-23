@@ -8,6 +8,7 @@ from dotenv import load_dotenv
 
 #controls the bots prefix
 client = commands.Bot(command_prefix="!")
+#removes the native help command
 client.remove_command('help')
 
 #generic commands 
