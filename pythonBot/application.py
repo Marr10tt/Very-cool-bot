@@ -3,8 +3,9 @@ from discord.ext import commands
 import youtube_dl
 import os
 import random
+from dotenv import load_dotenv
 
-#Version 0.1.0
+#Version 0.1.1
 
 #controls the bots prefix
 client = commands.Bot(command_prefix="!")
@@ -91,4 +92,7 @@ async def dice(ctx):
     randice = random.choice(choices1)
     await ctx.send(randice)
 
-client.run('')
+#loads discord token from given .env file
+load_dotenv()
+TOKEN = os.getenv("DISCORD_TOKEN")
+client.run(TOKEN)
