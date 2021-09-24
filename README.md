@@ -16,3 +16,7 @@ create file called .env in the same place you have the application.py and ffmpeg
 
 # hydration channel information
 create a file called botTokens.py with a variable called channelToken which contains the value of the channel you want hydration reminders in
+
+example (something like this in a botTokens.py file):
+
+channelToken = 12345678
