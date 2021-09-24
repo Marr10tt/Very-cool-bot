@@ -6,6 +6,8 @@ import random
 from dotenv import load_dotenv
 import musicCommands
 from musicCommands import *
+import botTokens
+from botTokens import channelToken
 
 #Version 0.1.2
 
@@ -22,10 +24,10 @@ async def on_ready():
 #sends out a message every 60 minutes to drink water in the hydration channel
 @tasks.loop(minutes=60)
 async def water():
+    global channelToken
     await client.wait_until_ready()
-    channel = client.get_channel(890688909875478598)
+    channel = client.get_channel(botTokens.channelToken)
     await channel.send("Have some water")
-
 
 #generic commands 
 
@@ -35,7 +37,6 @@ async def help(ctx):
     await ctx.send("""```help - displays a list of key commands 
 play - plays a given youtube link 
 leave - makes the bot leave the vc```""")
-
 
 #music commands
 @client.command()
