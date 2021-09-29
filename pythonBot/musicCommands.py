@@ -4,6 +4,7 @@ import os
 from discord.ext import commands
 
 #downloads and plays the song based on YT link
+#defines the file name of the song downloaded also deleting it after the song is changed allowing for file efficiency
 async def play(ctx, url : str, client):
     song_there = os.path.isfile("song.webm")
     try:
