@@ -47,6 +47,7 @@ async def play(ctx, url : str):
 @client.command()
 async def leave(ctx):
     global client
+    #Links to the music commands file allowing for cleaner file space
     await musicCommands.leave(ctx, client)
 
 #pauses the current track 
@@ -84,7 +85,7 @@ async def dice(ctx):
     randice = random.choice(dicerandom)
     await ctx.send(randice)
 
-#starts the water function
+#starts the hydration reminder timer segment 
 water.start()
 #loads discord token from given .env file 
 load_dotenv()
